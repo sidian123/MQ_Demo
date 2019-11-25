@@ -20,7 +20,7 @@ public class Receiver {
         factory.setHost("sidian123.geely.com");
         factory.setUsername("sidian");
         factory.setPassword("123456");
-        //connect to server, but without try-width-resource to close ,因为消费者异步监听, 存在子线程, 主线程的main()方法结束了, 主线程也不会结束, 将等待子线程退出. 因此不应该在main()方法中释放资源
+        //connect to server, but without try-width-resource to close ,因为消费者异步监听后, 将存在子线程, 主线程的main()方法结束了, 主线程也不会结束, 而是等待子线程退出. 因此不应该在main()方法中释放资源
         Connection connection = factory.newConnection();
         //acquire channel, like socket
         Channel channel = connection.createChannel();
